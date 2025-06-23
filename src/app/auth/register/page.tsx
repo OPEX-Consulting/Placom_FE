@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { toast } from "react-toastify";
 import { useMutation } from "@tanstack/react-query";
-import { useLayoutEffect, useState, useEffect, Suspense, useCallback } from "react";
+import { useLayoutEffect, useState, useEffect, Suspense } from "react";
 import { redirect, useRouter, useSearchParams } from "next/navigation";
 import api from "@/services/api";
 import { Loader2Icon } from "lucide-react"
@@ -27,7 +27,6 @@ import {
   LoginWrapper as SignUpWrapper,
 } from "../login/loginStyle";
 import PasswordStrengthChecker from "@/shared/passwordChecker";
-import ImageLoader from "@/shared/ImageLoader";
 
 
 // Type definitions
