@@ -158,8 +158,8 @@ const Input = ({
           />
         </div>
 
-        {(name === "password" || name === "confirmPassword") && (
-          <AbsoluteIcon eye={"true"}>
+        {(type === "password") && (
+          <AbsoluteIcon eye='true'>
             {view ? (
               <AiOutlineEye onClick={handleView} color="#878787" />
             ) : (

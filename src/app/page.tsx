@@ -11,12 +11,9 @@ import Six_Section from "./(homepage)/components/Six_Section"
 import Seventh_Section from "./(homepage)/components/Seventh_Section"
 
  const Home : React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false)
   return (
     <main className="min-h-screen">
       <First_Section
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
       />
       <Second_Section
       />

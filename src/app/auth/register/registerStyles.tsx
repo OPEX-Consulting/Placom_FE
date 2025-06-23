@@ -247,7 +247,6 @@ export const StyledImage = styled(Image)`
   object-fit: contain;
   object-position: center;
   animation: ${slideInFromBottom} 0.5s ease-out; /* Adjust the duration as needed */
-
   @media screen and (max-width: 800px) {
     display: none;
   }
