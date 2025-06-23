@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image"
 import { useState } from "react"
+import Link from "next/link"
 import First_Section from "./(homepage)/components/First_Section"
 import Second_Section from "./(homepage)/components/Second_Section"
 import Third_Section from "./(homepage)/components/Third_Section"
@@ -116,24 +117,24 @@ import Seventh_Section from "./(homepage)/components/Seventh_Section"
             <div className="w-fit md:m-auto mt-5 lg:col-span-3">
               <h3 className="text-xl font-semibold mb-3">Quick Access</h3>
               <div className="space-y-2">
-                <a href="#about" className="block text-gray-300 hover:text-white transition-colors">
+                <Link href="/about-us" className="block text-gray-300 hover:text-white transition-colors">
                   About Us
-                </a>
-                <a href="#marketplace" className="block text-gray-300 hover:text-white transition-colors">
+                </Link>
+                <Link href="/marketplace" className="block text-gray-300 hover:text-white transition-colors">
                   Marketplace
-                </a>
-                <a href="#seller" className="block text-gray-300 hover:text-white transition-colors">
+                </Link>
+                <Link href="/seller" className="block text-gray-300 hover:text-white transition-colors">
                   Seller
-                </a>
-                <a href="#warehouse" className="block text-gray-300 hover:text-white transition-colors">
+                </Link>
+                <Link href="/warehouse" className="block text-gray-300 hover:text-white transition-colors">
                   Warehouse
-                </a>
-                <a href="#corporate" className="block text-gray-300 hover:text-white transition-colors">
+                </Link>
+                <Link href="/corporate" className="block text-gray-300 hover:text-white transition-colors">
                   Corporate
-                </a>
-                <a href="#contact" className="block text-gray-300 hover:text-white transition-colors">
+                </Link>
+                <Link href="/contact" className="block text-gray-300 hover:text-white transition-colors">
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>
