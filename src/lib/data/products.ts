@@ -1,5 +1,6 @@
 export const products = [
   {
+    id: "1",
     name: "Onions",
     userImage: "/userImg.jpg",
     farmer: "Ushaseer Farms",
@@ -13,6 +14,7 @@ export const products = [
     favourite: true,
   },
   {
+    id: "2",
     name: "Onions",
     userImage: "/userImg.jpg",
     farmer: "Ushaseer Farms",
@@ -26,6 +28,7 @@ export const products = [
     favourite: true,
   },
   {
+    id: "3",
     name: "Onions",
     userImage: "/userImg.jpg",
     farmer: "Ushaseer Farms",
@@ -39,6 +42,7 @@ export const products = [
     favourite: false,
   },
   {
+    id: "4",
     name: "Onions",
     userImage: "/userImg.jpg",
     farmer: "Ushaseer Farms",
@@ -52,6 +56,7 @@ export const products = [
     favourite: false,
   },
   {
+    id: "5",
     name: "Onions",
     userImage: "/userImg.jpg",
     farmer: "Ushaseer Farms",
