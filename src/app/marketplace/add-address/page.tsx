@@ -321,7 +321,7 @@ export default function AddressForm() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-sm font-medium"
+                  className="bg-primary hover:bg-teal-700 text-white px-8 py-3 rounded-sm font-medium"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">
