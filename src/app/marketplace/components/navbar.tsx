@@ -12,7 +12,7 @@ export function Navbar() {
         { name: "Resources", href: "/about" },
     ];
   return (
-    <header className="w-full m-auto bg-white">
+    <header className="w-full m-auto bg-white sticky top-0 z-50 shadow-xs">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-32">
             <div className="flex items-center gap-2">

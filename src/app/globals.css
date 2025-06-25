@@ -35,6 +35,8 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
   --color-success: var(--success);
+  --color-gray-2: var(--gray-2);
+  --color-gray-3: var(--gray-3);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -58,6 +60,8 @@
   --secondary: rgba(138, 199, 60, 1);
   --secondary-foreground: oklch(0.205 0 0);
   --success: #27AE60;
+  --gray-2: #4F4F4F;
+  --gray-3: #828282;
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
