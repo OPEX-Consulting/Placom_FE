@@ -6,11 +6,10 @@ import Link from "next/link";
 const ImageLoader = lazy(() => import("@/shared/ImageLoader"))
 
 interface HeaderProps {
-
   register: boolean;
 }
 const Header: React.FC<HeaderProps> = ({register}) => {
-    return (<header className="py-3 px-4 w-[82%] flex flex-row justify-between  border-gray-100 rounded-full shadow-2xl bg-slate mx-auto">
+    return (<header className="py-3 px-4 w-[82%] flex flex-row justify-between  border-gray-100 rounded-full shadow-2xl !bg-white/50 mx-auto">
         <div><Link href={"/"}><ImageContent /> </Link></div>
         <div className='items-center gap-2 justify-center flex cursor-pointer'>
             <Link href={"/auth/login"}><Button color="primary" className=" cursor-pointer rounded-full p-5 !bg-green-600  hover:bg-green-700 text-md">Login</Button></Link>

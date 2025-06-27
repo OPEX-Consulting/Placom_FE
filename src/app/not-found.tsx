@@ -1,23 +1,30 @@
+'use client'
 import Link from 'next/link';
 import { NextPage } from 'next';
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
-const Custom404: NextPage = () => {
+const NotFound : NextPage = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    console.error(
+      "404 Error: User attempted to access non-existent route:",
+      location.pathname
+    );
+  }, [location.pathname]);
+
   return (
-    <div className="w-screen h-screen flex flex-col space-y-2  justify-center items-center   bg-white overflow-hidden">
-      <div className='m-auto  h-full min-h-[400px] shadow-lg flex flex-col  space-y-3 justify-center items-center p-4 rounded-md'>
-        <h1 className="text-5xl font-bold text-foreground">404</h1>
-        <p className="text-3xl font-medium">
-          Sorry, the page you're looking for can't be found.
-        </p>
-        <Link 
-          href="/" 
-          className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-5 rounded text-xl"
-        >
-          Go back to Home
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">404</h1>
+        <p className="text-xl text-gray-600 mb-4">Oops! <span>{location?.pathname}</span> not found</p>
+        <Link href="/" className="text-blue-500 hover:text-blue-700 underline">
+          Return to Home
         </Link>
       </div>
     </div>
   );
 };
 
-export default Custom404;
+export default NotFound;

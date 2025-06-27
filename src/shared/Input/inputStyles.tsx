@@ -6,7 +6,7 @@ interface InputContainerProps {
 }
 
 interface AbsoluteIconProps {
-  eye?: boolean | string;
+  eye?: string;
   search?: boolean;
 }
 

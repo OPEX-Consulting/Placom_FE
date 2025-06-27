@@ -1,18 +1,14 @@
 'use client'
-import React from 'react';
+import React,{useState} from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from "next/link"
 
+const First_Section: React.FC = () => {
 
-interface FirstSectionProps {
-  menuOpen?: boolean;
-  setMenuOpen: (open: boolean) => void;
-}
-
-const First_Section: React.FC<FirstSectionProps> = ({ menuOpen, setMenuOpen }) => {
+    const [menuOpen, setMenuOpen] = useState<boolean>(false)
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-teal-400 via-green-300 to-blue-400">
       {/* Background overlay */}

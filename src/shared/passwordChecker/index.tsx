@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+// 'use client'
+import React, { useMemo, useEffect } from "react";
 
 interface PasswordStrengthCheckerProps {
   password: string;
@@ -21,9 +22,6 @@ const PasswordStrengthChecker: React.FC<PasswordStrengthCheckerProps> = ({
   const passwordStrength = useMemo((): PasswordStrengthResult => {
     // Handle empty password case
     if (password.trim() === '') {
-      if (checkStatus) {
-        checkStatus(false);
-      }
 
       return {
         uppercase: false,
@@ -38,14 +36,8 @@ const PasswordStrengthChecker: React.FC<PasswordStrengthCheckerProps> = ({
     const hasUppercase = /[A-Z]/.test(password);
     const hasLowercase = /[a-z]/.test(password);
     const hasNumber = /\d/.test(password);
-    const hasSpecialChar = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password);
+    const hasSpecialChar = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?`~]/.test(password);
     const isLengthValid = password.length >= 8;
-
-    const isAllValid = hasLowercase && hasNumber && hasUppercase && hasSpecialChar && isLengthValid;
-
-    if (checkStatus) {
-      checkStatus(isAllValid);
-    }
 
     return {
       uppercase: hasUppercase,
@@ -63,6 +55,12 @@ const PasswordStrengthChecker: React.FC<PasswordStrengthCheckerProps> = ({
   const getStatusClass = (isValid: boolean): string => {
     return isValid ? "text-green-700" : "text-red-700";
   };
+
+
+  useEffect(() => {
+    const isAllValid = Object.values(passwordStrength).every(Boolean);
+    checkStatus?.(isAllValid);
+  }, [passwordStrength, checkStatus]);
 
   return (
     <div className="pl-5 mt-2 w-full">
