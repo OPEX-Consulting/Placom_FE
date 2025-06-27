@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { toast } from "react-toastify";
 import { useMutation } from "@tanstack/react-query";
-import { useLayoutEffect, useState, useEffect, Suspense, useCallback } from "react";
+import { useLayoutEffect, useState, useEffect, Suspense } from "react";
 import { redirect, useRouter, useSearchParams } from "next/navigation";
 import api from "@/services/api";
 import { Loader2Icon } from "lucide-react"
@@ -285,8 +285,8 @@ const SignUp: React.FC = () => {
               )}
             </div>
             <Input
-              type={"password"}
               name="confirmPassword"
+              type={"password"}
               error={confirmPasswordError}
               value={confirmPassword}
               placeholder={"Confirm password"}
@@ -302,16 +302,16 @@ const SignUp: React.FC = () => {
             />
 
             <div className="flex flex-row gap-2  mt-5  !items-start !justify-start p-1 w-full">
-                <Checkbox
+              <Checkbox
                 checked={adhere}
-                defaultChecked={adhere} 
+                defaultChecked={adhere}
                 className="data-[state=checked]:border-green-900 border-2 data-[state=checked]:bg-teal-800 data-[state=checked]:text-white dark:data-[state=checked]:border-green-700 dark:data-[state=checked]:bg-teal-700"
-                onClick={() =>  setAdhere(!adhere)}
+                onClick={() => setAdhere(!adhere)}
                 onCheckedChange={(checked) => {
                   return checked
                 }
                 }
-                 />
+              />
               <div className="-font-work-sans col-span-2 flex items-start justify-start">
                 <p className="text-[#000] text-sm">
                   I agree to adhere to
@@ -330,7 +330,7 @@ const SignUp: React.FC = () => {
               <Button
                 variant={'primary'}
                 size={'lg'}
-                disabled={adhere ? false:true }
+                disabled={adhere ? false : true}
                 className="w-full bg-[#0F6862] rounded-none !py-6 px-4 text-lg"
                 onClick={() => handleSubmit()}
               >{isPending ? "Creating your account..." : btnName}</Button>
@@ -342,7 +342,7 @@ const SignUp: React.FC = () => {
 
           </form>
         </SignUpForm>
-        <ImageWrapper >
+        {/* <ImageWrapper >
           <div className="overlay"></div>
           <StyledImage className="" alt="#" src={"/assets/Image.png"} fill />
           <Absolute className="overflow-hidden pr-42">
@@ -353,15 +353,50 @@ const SignUp: React.FC = () => {
             </div>
             <More>see more facts</More>
           </Absolute>
-        </ImageWrapper>
+        </ImageWrapper> */}
+        <ImageContent />
       </SignUpWrapper>
     </AuthLayout>
   );
 };
 
+const ImageContent = () => {
+  const [imageState, setImageState] = useState<'loading' | 'loaded' | 'error'>('loading');
+
+  return (<ImageWrapper >
+    <div className="overlay"></div>
+    <StyledImage alt="#"
+      src={"/assets/Image.png"}
+      fill
+      onLoad={() => setImageState('loaded')}
+      onError={() => setImageState('error')}
+      loading="lazy"
+      className={`transition-opacity duration-300 ${imageState === 'loaded' ? 'opacity-100' : 'opacity-0'
+        }`}
+    />
+
+          {/* Loading state */}
+      {imageState === 'loading' && (
+        <div className="absolute inset-0 flex items-center justify-center bg-white/80 z-10">
+          <Loader2Icon className="animate-spin h-8 w-8 text-[#000]" />
+        </div>
+      )}
+      
+
+    <Absolute className="overflow-hidden pr-6 md:pr-15 lg:pr-43 ">
+      <div>Did you know?</div>
+      <div>
+        Farmers will have to grow 70 percent more food than what is
+        currently produced to feed the world's growing population by 2050.
+      </div>
+      <More>see more facts</More>
+    </Absolute>
+  </ImageWrapper>)
+}
+
 export default function RegisterForm() {
   return (
-    <Suspense  fallback={<div className='h-screen w-full flex flex-col justify-center items-center'><Loader2Icon className='animate-spain h-10 w-10'/></div>}>
+    <Suspense fallback={<div className='h-screen w-full flex flex-col justify-center items-center'><Loader2Icon className='animate-spain h-10 w-10' /></div>}>
       <SignUp />
     </Suspense>
   );
